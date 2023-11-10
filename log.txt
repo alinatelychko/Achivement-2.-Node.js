@@ -1,0 +1,18 @@
+URL: /
+Timestamp: Fri Nov 10 2023 15:25:19 GMT+0100 (GMT+01:00)
+
+URL: /favicon.ico
+Timestamp: Fri Nov 10 2023 15:25:19 GMT+0100 (GMT+01:00)
+
+URL: /documentation
+Timestamp: Fri Nov 10 2023 15:25:37 GMT+0100 (GMT+01:00)
+
+URL: /favicon.ico
+Timestamp: Fri Nov 10 2023 15:25:37 GMT+0100 (GMT+01:00)
+
+URL: /document
+Timestamp: Fri Nov 10 2023 15:25:42 GMT+0100 (GMT+01:00)
+
+URL: /favicon.ico
+Timestamp: Fri Nov 10 2023 15:25:42 GMT+0100 (GMT+01:00)
+
