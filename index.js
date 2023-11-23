@@ -84,7 +84,7 @@ let topMovies = [
     },
     'Director': {
       'Name': 'David Brucker',
-      'Bio':'David Bruckner (born 1977 or 1978)[1] is an American film director. With Jacob Gentry and Dan Bush, he co-wrote and co-directed the 2007 horror film The Signal. Bruckner also co-wrote and directed the "Amateur Night" segment of the 2012 horror anthology film V/H/S, as well as directed the 2017 film The Ritual and the 2020 film The Night House.',
+      'Bio':'David Bruckner is an American film director. With Jacob Gentry and Dan Bush, he co-wrote and co-directed the 2007 horror film The Signal. Bruckner also co-wrote and directed the "Amateur Night" segment of the 2012 horror anthology film V/H/S, as well as directed the 2017 film The Ritual and the 2020 film The Night House.',
       'Birth':'1977.0'
     }
   },
@@ -97,7 +97,7 @@ let topMovies = [
     },
     'Director': {
       'Name': 'Galder Gaztelu-Urrutia',
-      'Bio':'Galder Gaztelu-Urrutia (Basque: [ɡalder ɣas̻telu urutia]; born 17 February 1974) is a Spanish film and advertising director and producer.[1] He made his feature-film debut with, The Platform (2019), a dystopian science fiction-horror film.',
+      'Bio':'Galder Gaztelu-Urrutia is a Spanish film and advertising director and producer. He made his feature-film debut with, The Platform (2019), a dystopian science fiction-horror film.',
       'Birth':'17 February 1974'
     }
   },
@@ -106,12 +106,64 @@ let topMovies = [
     'Description':' American comedy-drama film written and directed by Thomas Bezucha. Produced by Michael London and distributed by 20th Century Fox, it stars an ensemble cast, including Diane Keaton, Craig T. Nelson, Dermot Mulroney, Sarah Jessica Parker, Luke Wilson, Claire Danes, Rachel McAdams, and Tyrone Giordano. The plot follows the Christmas holiday misadventures of the Stone family in a small New England town when the eldest son, played by Mulroney, brings his uptight girlfriend (played by Parker) home with the intention of proposing to her with a cherished heirloom ring. Overwhelmed by the hostile reception, she begs her sister to join her for emotional support, which triggers further complications.',
     'Genre':{
       'Name':'Comedy drama',
-      'Description':'Comedy drama, also known as the portmanteau dramedy,[1][2][3][4] is a genre of dramatic works that combines elements of comedy and drama. The modern, scripted television examples tend to have more humorous bits than simple comic relief seen in a typical hour-long legal or medical drama but exhibit far fewer jokes per minute as in a typical half-hour sitcom.'
+      'Description':'Comedy drama, also known as the portmanteau dramedy, is a genre of dramatic works that combines elements of comedy and drama. The modern, scripted television examples tend to have more humorous bits than simple comic relief seen in a typical hour-long legal or medical drama but exhibit far fewer jokes per minute as in a typical half-hour sitcom.'
     },
     'Director': {
       'Name': '	Thomas Bezucha',
-      'Bio':'Bezucha was born and raised in Amherst, Massachusetts,[2] and graduated from Amherst Regional High School in 1982. Bezucha graduated in fashion design from the Parsons School of Design, and worked as a creative services executive for Polo Ralph Lauren and Coach.He wrote and directed the films Big Eden (2000), The Family Stone (2005), Monte Carlo (2011), and Let Him Go (2020). He also co-wrote the films The Guernsey Literary and Potato Peel Pie Society (2018) and The Good House (2021).Bezucha is openly gay.',
+      'Bio':'Bezucha was born and raised in Amherst, Massachusetts, and graduated from Amherst Regional High School in 1982. Bezucha graduated in fashion design from the Parsons School of Design, and worked as a creative services executive for Polo Ralph Lauren and Coach.He wrote and directed the films Big Eden (2000), The Family Stone (2005), Monte Carlo (2011), and Let Him Go (2020). He also co-wrote the films The Guernsey Literary and Potato Peel Pie Society (2018) and The Good House (2021).Bezucha is openly gay.',
       'Birth':'March 8, 1964'
+    }
+  },
+  {
+    'Title': 'Titanic',
+    'Description':'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.',
+    'Genre':{
+      'Name':'Romance',
+      'Description':'Romance films involve romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters.'
+    },
+    'Director': {
+      'Name': 'James Cameron',
+      'Bio':'James Francis Cameron CC is a Canadian filmmaker. A major figure in the post-New Hollywood era, Cameron is considered one of the industry''s most innovative filmmakers, regularly making use of novel technologies with a classical filmmaking style.',
+      'Birth':'August 16, 1954'
+    }
+  },
+  {
+    'Title': 'Avatar',
+    'Description':'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
+    'Genre':{
+      'Name':'Sci-Fi',
+      'Description':'Usually futuristic, science fiction speculates about alternative ways of life made possible by technological change, and hence has sometimes been called "speculative fiction.'
+    },
+    'Director': {
+      'Name': 'James Cameron',
+      'Bio':'James Francis Cameron CC is a Canadian filmmaker. A major figure in the post-New Hollywood era, Cameron is considered one of the industry''s most innovative filmmakers, regularly making use of novel technologies with a classical filmmaking style.',
+      'Birth':'August 16, 1954'
+    }
+  },
+  {
+    'Title': 'The Creator',
+    'Description':'Against the backdrop of a war between humans and robots with artificial intelligence, a former soldier finds the secret weapon, a robot in the form of a young child.',
+    'Genre':{
+      'Name':'Sci-Fi',
+      'Description':'Usually futuristic, science fiction speculates about alternative ways of life made possible by technological change, and hence has sometimes been called "speculative fiction.'
+    },
+    'Director': {
+      'Name': 'Gareth Edwards',
+      'Bio':'Gareth James Edwards was born in the English town of Nuneaton, Warwickshire. Growing up, he admired movies such as the 1977 classic "Star Wars", and went on to pursue a film career. He even cites George Lucas and Steven Spielberg as his biggest influences. Edwards studied BA (Hons) Film & Video at the University for the Creative Arts in Farnham (formerly the Surrey Institute of Art & Design), graduating in 1996. In 2012, he received an honorary Master of Arts from UCA.',
+      'Birth':'June 1, 1975'
+    }
+  },
+  {
+    'Title': 'Tenet',
+    'Description':'Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.',
+    'Genre':{
+      'Name':'Action',
+      'Description':'Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats.'
+    },
+    'Director': {
+      'Name': 'Christopher Nolan',
+      'Bio':'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made.',
+      'Birth':'July 30, 1970'
     }
   }
 ];
