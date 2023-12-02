@@ -96,7 +96,7 @@ app.post("/users/:Username/movies/:MovieID", async (req, res) => {
 app.delete("/users/:id/:movieTitle", (req, res) => {
   const { id, movieTitle } = req.params;
 
-  let user = users.find((user) => user.id == id);
+  const user = await Users.findById(id);
 
   if (user) {
     user.favMovies = user.favMovies.filter((title) => title !== movieTitle);
