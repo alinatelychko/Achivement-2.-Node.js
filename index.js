@@ -16,11 +16,20 @@ mongoose.connect("mongodb://localhost:27017/cf_movies", {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//authentication
+let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
+
 //update
 
 // Update a user's info, by username
 
-app.put("/users/:Username", async (req, res) => {
+app.put("/users/:Username", passport.authenticate('jwt', { session: false }), async (req, res) => {
+  if(req.user.Username !== req.params.Username){
+    return res.status(400).send('Permission denied');
+}
+  
   await Users.findOneAndUpdate(
     { Username: req.params.Username },
     {
@@ -74,7 +83,7 @@ app.post("/users", async (req, res) => {
 });
 
 // Add a movie to a user's list of favorites
-app.post("/users/:Username/movies/:MovieID", async (req, res) => {
+app.post("/users/:Username/movies/:MovieID", passport.authenticate('jwt', { session: false }), async (req, res) => {
   await Users.findOneAndUpdate(
     { Username: req.params.Username },
     {
@@ -93,7 +102,7 @@ app.post("/users/:Username/movies/:MovieID", async (req, res) => {
 
 //delete
 
-app.delete("/users/:id/:movieTitle", (req, res) => {
+app.delete("/users/:id/:movieTitle", passport.authenticate('jwt', { session: false }), async (req, res) => {
   const { id, movieTitle } = req.params;
 
   const user = await Users.findById(id);
@@ -102,7 +111,7 @@ app.delete("/users/:id/:movieTitle", (req, res) => {
     user.favMovies = user.favMovies.filter((title) => title !== movieTitle);
     res
       .status(200)
-      .send(`${movieTitle} has been removed from user ${id}'s array`);
+      .send('${movieTitle} has been removed from user ${id}s array');
   } else {
     res.status(400).send("User not found");
   }
@@ -110,7 +119,7 @@ app.delete("/users/:id/:movieTitle", (req, res) => {
 
 //delete
 
-app.delete("/users/:Username", (req, res) => {
+app.delete("/users/:Username", passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndRemove({ Username: req.params.userName })
     .then((user) => {
       if (!user) {
@@ -132,7 +141,7 @@ app.get("/", (req, res) => {
 });
 
 // Get all users
-app.get("/users", async (req, res) => {
+app.get("/users", passport.authenticate('jwt', { session: false }), async (req, res) => {
   await Users.find()
     .then((users) => {
       res.status(201).json(users);
@@ -144,7 +153,7 @@ app.get("/users", async (req, res) => {
 });
 
 // Get a user by username
-app.get("/users/:Username", async (req, res) => {
+app.get("/users/:Username", passport.authenticate('jwt', { session: false }), async (req, res) => {
   await Users.findOne({ Username: req.params.Username })
     .then((user) => {
       res.json(user);
@@ -155,7 +164,7 @@ app.get("/users/:Username", async (req, res) => {
     });
 });
 
-app.get("/movies", async (req, res) => {
+app.get("/movies", passport.authenticate('jwt', {session: false}), async (req, res) => {
   await Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -166,7 +175,7 @@ app.get("/movies", async (req, res) => {
     });
 });
 
-app.get("/movies/:Title", async (req, res) => {
+app.get("/movies/:Title", passport.authenticate('jwt', { session: false }), async (req, res) => {
   await Movies.findOne({ Title: req.params.Title })
     .then((movie) => {
       res.json(movie);
@@ -177,7 +186,7 @@ app.get("/movies/:Title", async (req, res) => {
     });
 });
 
-app.get("/movies/genres/:genreName", async (req, res) => {
+app.get("/movies/genres/:genreName", passport.authenticate('jwt', { session: false }), async (req, res) => {
   await Movies.findOne({ "Genre.Name": req.params.genreName })
     .then((movies) => {
       res.json(movies);
@@ -188,7 +197,7 @@ app.get("/movies/genres/:genreName", async (req, res) => {
     });
 });
 
-app.get("/movies/directors/:directorName", async (req, res) => {
+app.get("/movies/directors/:directorName", passport.authenticate('jwt', { session: false }), async (req, res) => {
   await Movies.findOne({ "Director.Name": req.params.directorName })
     .then((movies) => {
       res.json(movies);
@@ -207,11 +216,6 @@ app.get("/secreturl", (req, res) => {
   res.send("This is a secret URL with super top-secret content.");
 });
 
-// // Error handling middleware
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).send('Something broke!');
-// });
 
 // Listen for requests
 app.listen(8080, () => {
