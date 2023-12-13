@@ -10,8 +10,8 @@ const Users = Models.User;
 const { check } = require('express-validator');
 
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/cf_movies");
-
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/cf_movies");
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://adelin9999:xm1IxTjdodweREYv@cluster0.ixcgxaq.mongodb.net/cf_movies?retryWrites=true&w=majority");
 
 // Middleware for parsing requests
 app.use(bodyParser.urlencoded({ extended: true }));
