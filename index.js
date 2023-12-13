@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -6,13 +7,11 @@ const mongoose = require("mongoose");
 const Models = require("./models");
 const Movies = Models.Movie;
 const Users = Models.User;
-const {check} = require ("express-validator")
+const { check } = require('express-validator');
 
 
-mongoose.connect("mongodb://localhost:27017/cf_movies", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/cf_movies");
+
 
 // Middleware for parsing requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,6 +19,18 @@ app.use(bodyParser.json());
 
 const cors = require('cors');
 app.use(cors());
+
+let allowedOrigins = ['http://localhost:8080', 'https://movieapicf-30767e813dee.herokuapp.com'];
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            let message = 'The CORS policy for this application doesn\'t allow access from origin' * origin;
+            return callback(new Error(message), false);
+        }
+        return callback(null, true);
+    }
+}));
 
 //authentication
 let auth = require('./auth')(app);
