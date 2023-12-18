@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const Models = require("./models");
 const Movies = Models.Movie;
 const Users = Models.User;
-const { check } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/cf_movies");
@@ -83,7 +83,7 @@ app.post("/users",  [
 
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
-  } 
+  }
   
   let hashedPassword = Users.hashPassword(req.body.Password);
   await Users.findOne({ Username: req.body.Username })
@@ -153,9 +153,9 @@ app.delete("/users/:Username", passport.authenticate('jwt', { session: false }),
   Users.findOneAndRemove({ Username: req.params.userName })
     .then((user) => {
       if (!user) {
-        res.status(400).send(req.params.userName + " was not found");
+        res.status(400).send(req.params.Username + " was not found");
       } else {
-        res.status(200).send(req.params.userName + " was deleted");
+        res.status(200).send(req.params.Username + " was deleted");
       }
     })
     .catch((err) => {
