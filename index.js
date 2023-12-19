@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-let allowedOrigins = ['http://localhost:8080', 'https://movieapicf-30767e813dee.herokuapp.com'];
+let allowedOrigins = ['http://localhost:8080','http://localhost:1234', 'https://movieapicf-30767e813dee.herokuapp.com'];
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin) return callback(null, true);
