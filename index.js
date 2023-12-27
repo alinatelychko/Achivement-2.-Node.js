@@ -164,6 +164,30 @@ app.delete("/users/:Username", passport.authenticate('jwt', { session: false }),
     });
 });
 
+app.delete("/users/:Username/movies/:MovieID", passport.authenticate('jwt', { session: false }), async (req, res) => {
+  const { Username, MovieID } = req.params;
+
+  try {
+    const updatedUser = await Users.findOneAndUpdate(
+      { Username: Username },
+      {
+        $pull: { FavoriteMovies: MovieID },
+      },
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error: " + error);
+  }
+});
+
+
 //READ
 
 app.get("/", (req, res) => {
