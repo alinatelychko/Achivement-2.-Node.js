@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-let allowedOrigins = ['http://localhost:8080','http://localhost:1234', 'https://movieapicf-30767e813dee.herokuapp.com', 'https://myflix-alinatelychko.netlify.app', 'http://localhost:4200'];
+let allowedOrigins = ['http://localhost:8080','http://localhost:1234', 'https://movieapicf-30767e813dee.herokuapp.com', 'https://myflix-alinatelychko.netlify.app', 'http://localhost:4200', 'https://myflix-angular-app.netlify.app/'];
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin) return callback(null, true);
