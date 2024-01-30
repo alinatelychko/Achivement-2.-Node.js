@@ -164,28 +164,22 @@ app.delete("/users/:Username", passport.authenticate('jwt', { session: false }),
     });
 });
 
-app.delete("/users/:Username/movies/:MovieID", passport.authenticate('jwt', { session: false }), async (req, res) => {
-  const { Username, MovieID } = req.params;
-
-  try {
-    const updatedUser = await Users.findOneAndUpdate(
-      { Username: Username },
+app.delete("/users/:Username/movies/:MoviesID", passport.authenticate("jwt", { session: false }), (req, res) => {
+  Users.findOneAndUpdate(
+      { Username: req.params.Username },
       {
-        $pull: { FavoriteMovies: MovieID },
+          $pull: { FavoriteMovies: req.params.MoviesID }
       },
-      { new: true }
-    );
-
-    if (!updatedUser) {
-      return res.status(404).json({ error: "User not found" });
-    }
-
-    res.json(updatedUser);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Error: " + error);
-  }
-});
+      { new: true }, //This line makes sure the updated doc is returned
+      (err, updatedUser) => {
+          if (err) {
+              console.error(err);
+              res.status(500).send("Error: " + err);
+          } else {
+              res.json(updatedUser);
+          }
+  });
+  });
 
 
 //READ
