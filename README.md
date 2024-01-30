@@ -20,7 +20,7 @@ These instructions will help you set up the project on your local machine for de
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/movie-api.git
+   git clone https://github.com/alinatelychko/Achivement-2.-Node.js.git
 
 2. Change into the project directory:
 
